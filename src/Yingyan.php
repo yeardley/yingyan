@@ -16,6 +16,7 @@ use Yeardley\Yingyan\Supports\Str;
 
 /**
  * @method static Api entity($config)
+ * @method static Api track($config)
  */
 class Yingyan
 {

@@ -1,8 +1,8 @@
 <?php
 /**
- * Package Yeardley\Yingyan\Api\Entity\Search
+ * Package Yeardley\Yingyan\Api\Entity\Boundsearch
  * @Author yeardley
- * @Date 2020/5/18 13:51
+ * @Date 2020/5/18 14:54
  * @Email 510865496@qq.com
  */
 
@@ -11,16 +11,18 @@ namespace Yeardley\Yingyan\Api\Entity;
 
 use Yeardley\Yingyan\Api\Api;
 
-class Search extends Api
+class Boundsearch extends Api
 {
     protected $method = 'get';
 
     /**
-     * @param ak 用户的AK，授权使用 string 是
+     * @param ak	用户的AK，授权使用	string	必选
      *
-     * @param service_id service的ID，service 的唯一标识	int	是 在轨迹管理台创建鹰眼服务时，系统返回的 service_id
+     * @param service_id	service的ID，service 的唯一标识	int	必选	在轨迹管理台创建鹰眼服务时，系统返回的 service_id
      *
-     * @param query	搜索关键字 string 否	默认为空，检索全部数据支持 entity_name + entity_desc 的联合模糊检索
+     * @param bounds	矩形区域, 左下角和右上角的经纬度坐标点	string(25)	必选
+     *                  坐标点顺序为"左下;右上"，坐标对间使用;号分隔，格式为：纬度,经度;纬度,经度
+     *                  示例： 36.20,116.30;37.20,117.30
      *
      * @param filter 过滤条件 string 否 支持根据多个条件筛选，多个条件用竖线分隔（active_time 和 inactive_time 不可同时输入）
      *                                 规则：filter=key1:value1|key2:value2。
@@ -42,11 +44,15 @@ class Search extends Api
      *                                         【示例】 按定位时间loc_time字段降序排序：sortby=loc_time:desc
      *                                                 按自定义的手机号字段phone_number  升序排序：sortby=phone_number:asc
      *
+     * @param coord_type_input 请求参数 bounds 的坐标类型 string 否 默认值：bd09ll 该字段用于控制返回结果中坐标的类型。
+     *                                                     可选值为： bd09ll：百度经纬度坐标 gcj02：国测局加密坐标
+     *
      * @param coord_type_output 返回结果的坐标类型 string 否 默认值：bd09ll 该字段用于控制返回结果中坐标的类型。
      *                                                     可选值为： bd09ll：百度经纬度坐标 gcj02：国测局加密坐标
      *
      * @param page_index	分页索引	int(1到2^32-1)	可选 默认值为1。page_index与page_size一起计算从第几条结果返回，代表返回第几页。
      *
      * @param page_size	分页大小	int(1-1000)	可选 默认值为100。page_size与page_index一起计算从第几条结果返回，代表返回结果中每页有几条记录。
+     *
      */
 }

@@ -14,6 +14,18 @@ use Yeardley\Yingyan\Contracts\ApiApplicationInterface;
 use Yeardley\Yingyan\Exceptions\InvalidApiException;
 use Yeardley\Yingyan\Supports\Str;
 
+/**
+ * @method array add() 创建一个终端
+ * @method array update() 终端字段更新
+ * @method array delete() 删除终端
+ * @method array get() 终端查询
+ * @method array search() 根据关键字搜索终端
+ * @method array addpoint() 上传单个轨迹点
+ * @method array addpoints() 批量上传多个 entity 的多个轨迹点
+ * @method array getlatestpoint() 查询某 entity 的实时位置，支持纠偏
+ * @method array getdistance() 查询某 entity 一段时间内的轨迹里程，支持纠偏
+ * @method array gettrack() 查询某 entity 一段时间内的轨迹点，支持纠偏
+ */
 class Api implements ApiApplicationInterface
 {
     protected $method = 'post';

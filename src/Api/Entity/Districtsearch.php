@@ -1,8 +1,8 @@
 <?php
 /**
- * Package Yeardley\Yingyan\Api\Entity\Search
+ * Package Yeardley\Yingyan\Api\Entity\Districtsearch
  * @Author yeardley
- * @Date 2020/5/18 13:51
+ * @Date 2020/5/18 15:01
  * @Email 510865496@qq.com
  */
 
@@ -11,16 +11,19 @@ namespace Yeardley\Yingyan\Api\Entity;
 
 use Yeardley\Yingyan\Api\Api;
 
-class Search extends Api
+class Districtsearch extends Api
 {
+
     protected $method = 'get';
 
     /**
-     * @param ak 用户的AK，授权使用 string 是
+     * @param ak	用户的AK，授权使用	string	必选
      *
-     * @param service_id service的ID，service 的唯一标识	int	是 在轨迹管理台创建鹰眼服务时，系统返回的 service_id
+     * @param service_id	service的ID，service 的唯一标识	int	必选	在轨迹管理台创建鹰眼服务时，系统返回的 service_id
      *
-     * @param query	搜索关键字 string 否	默认为空，检索全部数据支持 entity_name + entity_desc 的联合模糊检索
+     * @param keyword	行政区划关键字	string	必选   支持中国范围内的国家、省、市、区/县名称。请尽量输入完整的行政区层级和名称，保证名称的唯一性。
+     *                                                 若输入的行政区名称匹配多个行政区，搜索会失败，将会返回匹配的行政区列表。
+     *                                                 关键字示例： 中国 北京市 湖南省长沙市 湖南省长沙市雨花区
      *
      * @param filter 过滤条件 string 否 支持根据多个条件筛选，多个条件用竖线分隔（active_time 和 inactive_time 不可同时输入）
      *                                 规则：filter=key1:value1|key2:value2。
@@ -48,5 +51,7 @@ class Search extends Api
      * @param page_index	分页索引	int(1到2^32-1)	可选 默认值为1。page_index与page_size一起计算从第几条结果返回，代表返回第几页。
      *
      * @param page_size	分页大小	int(1-1000)	可选 默认值为100。page_size与page_index一起计算从第几条结果返回，代表返回结果中每页有几条记录。
+     *
      */
+
 }

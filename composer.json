@@ -1,14 +1,19 @@
 {
     "name": "yeardley/yingyan",
     "description": "Bmap yingyan api",
+    "version": "1.0.0",
     "type": "library",
     "require": {
         "php": ">=7.0",
-        "guzzlehttp/guzzle": "*",
-        "phpunit": "*"
+        "guzzlehttp/guzzle": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yeardley\\Yingyan\\": "src/"
+        }
     },
     "license": "MIT",
     "authors": [

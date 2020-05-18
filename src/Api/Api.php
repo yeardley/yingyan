@@ -85,7 +85,7 @@ class Api implements ApiApplicationInterface
 
     protected function request()
     {
-        $url = $this->url ? $this->baseUrl .'/'. strtolower($this->path) .'/'. strtolower($this->name) : '';
+        $url = $this->url ?: $this->baseUrl .'/'. strtolower($this->path) .'/'. strtolower($this->name);
         if ($this->method == 'post') {
             $options['form_params'] = $this->config;
         } else {
